@@ -88,6 +88,12 @@ export class Users {
   })
   userPhoto: string | null;
 
+  @Column('integer', {
+    name: 'user_current_role',
+    nullable: true,
+  })
+  userCurrentRole: number | null;
+
   @OneToMany(() => BatchStudent, (batchStudent) => batchStudent.bastEntity)
   batchStudents: BatchStudent[];
 

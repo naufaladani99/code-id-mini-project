@@ -14,36 +14,52 @@ import { UsersPhones } from '../entities/UsersPhones';
 import { UsersRoles } from '../entities/UsersRoles';
 import { Entities } from '../entities/Entities';
 import { Roles } from '../entities/Roles';
-import { CandController } from './Controller/cand.con';
-import { BatchController } from './Controller/batch.con';
-import { CandService } from './Services/cand.srv';
-import { BatchService } from './Services/batch.srv';
-import { Batch } from 'src/entities/Batch';
-import { BatchStudent } from 'src/entities/BatchStudent';
-import { UsersEducation } from 'src/entities/UsersEducation';
-import { UsersSkill } from 'src/entities/UsersSkill';
-import { BatchStudentEvaluation } from 'src/entities/BatchStudentEvaluation';
-import { Employee } from 'src/entities/Employee';
-import { BootcampApply } from 'src/entities/BootcampApply';
-import { ProgramEntity } from 'src/entities/ProgramEntity';
+import { Contents } from '../entities/Contents';
+import { ContControll } from './Controller/cont.con';
+import { ContentsServices } from './Services/cont.srv';
+import { CourseReview } from '../entities/CourseReview';
+import { CoreControll } from './Controller/core.con';
+import { CoreServices } from './Services/core.srv';
+import { Employee } from '../entities/Employee';
+import { EmpControll } from './Controller/emp.con';
+import { EmployeeService } from './Services/emp.srv';
+import { SkillTemplate } from '../entities/SkillTemplate';
+import { SkteControll } from './Controller/skte.con';
+import { SkillTemplateServices } from './Services/skte.srv';
+import { SkillType } from '../entities/SkillType';
+import { SktyControll } from './Controller/skty.con';
+import { SkillTypeServices } from './Services/skty.srv';
+import { ProgramEntity } from '../entities/ProgramEntity';
+import { ProgControll } from './Controller/prog.con';
+import { ProgramEntitiesServices } from './Services/prog.srv';
+import { CoursesServices } from './Services/corse.srv';
+import { CorseControll } from './Controller/corse.con';
+import { Courses } from '../entities/Courses';
+import { InstructorCourse } from '../entities/InstructorCourse';
+import { InstructorCoursesServices } from './Services/inco.srv';
+import { IncoControll } from './Controller/inco.con';
+import { ContentSectionMaterial } from '../entities/ContentSectionMaterial';
+import { CosmControll } from './Controller/cosm.con';
+import { CosmServices } from './Services/cosm.srv';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      Batch,
-      BatchStudent,
       Users,
-      UsersEducation,
       UsersEmail,
       UsersPhones,
       UsersRoles,
       Entities,
       Roles,
-      UsersSkill,
-      BatchStudentEvaluation,
+      Contents,
+      CourseReview,
       Employee,
-      BootcampApply,
+      SkillTemplate,
+      SkillType,
       ProgramEntity,
+      Courses,
+      InstructorCourse,
+      ContentSectionMaterial,
     ]),
     MulterModule.register(ConfigMulter.UploadFiles()),
     PassportModule,
@@ -54,12 +70,41 @@ import { ProgramEntity } from 'src/entities/ProgramEntity';
   ],
   providers: [
     UsersService,
-    CandService,
-    BatchService,
     LocalStrategy,
     JwtStrategy,
+    ContentsServices,
+    CoreServices,
+    EmployeeService,
+    SkillTemplateServices,
+    SkillTypeServices,
+    ProgramEntitiesServices,
+    CoursesServices,
+    InstructorCoursesServices,
+    CosmServices,
   ],
-  controllers: [UserController, CandController, BatchController],
-  exports: [UsersService],
+  controllers: [
+    UserController,
+    ContControll,
+    CoreControll,
+    EmpControll,
+    SkteControll,
+    SktyControll,
+    ProgControll,
+    CorseControll,
+    IncoControll,
+    CosmControll,
+  ],
+  exports: [
+    UsersService,
+    ContentsServices,
+    CoreServices,
+    EmployeeService,
+    SkillTemplateServices,
+    SkillTypeServices,
+    ProgramEntitiesServices,
+    CoursesServices,
+    InstructorCoursesServices,
+    CosmServices,
+  ],
 })
 export class ServerModule {}

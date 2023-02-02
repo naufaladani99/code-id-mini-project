@@ -25,7 +25,7 @@ export default function signin() {
     if (UserProfile) {
       router.push('/')
     }
-  }, [UserProfile, router])
+  }, [UserProfile])
 
   const formik = useFormik({
     initialValues: {

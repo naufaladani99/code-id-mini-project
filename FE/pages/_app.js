@@ -5,6 +5,8 @@ import withRedux from 'next-redux-wrapper'
 import wrapper from './redux-saga/Store/index'
 import { HelmetProvider } from 'react-helmet-async'
 import '../styles/globals.css'
+import '../styles/bgitem.scss'
+
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {}

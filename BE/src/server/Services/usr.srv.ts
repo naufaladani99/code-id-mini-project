@@ -8,7 +8,6 @@ import { Entities } from '../../entities/Entities';
 import { UsersPhones } from '../../entities/UsersPhones';
 import { UsersEmail } from '../../entities/UsersEmail';
 import { UsersRoles } from '../../entities/UsersRoles';
-import { Roles } from '../../entities/Roles';
 
 const saltOrRounds = 10;
 @Injectable()
@@ -64,6 +63,7 @@ export class UsersService {
         userName: fields.userName,
         userModifiedDate: new Date(),
         userPassword: hashpassword,
+        userCurrentRole: fields.userCurrentRole,
       });
       await this.usersPhone.save({
         uspoEntityId: EntityId.entityId,

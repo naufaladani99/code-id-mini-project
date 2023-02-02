@@ -1,6 +1,8 @@
 module.exports = {
     content: [
+      "./node_modules/flowbite-react/**/*.js",
       "./pages/**/*.{js,jsx,ts,tsx}",
+      "./public/**/*.html",
     ],
     theme: {
         listStyleType: {
@@ -16,5 +18,6 @@ module.exports = {
       require('@tailwindcss/forms'),
       require('@tailwindcss/aspect-ratio'),
       require('@tailwindcss/typography'),
+      require("flowbite/plugin"),
     ],
   }

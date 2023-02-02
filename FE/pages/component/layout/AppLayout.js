@@ -30,7 +30,6 @@ import {
 } from "@heroicons/react/solid";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Breadcrumb from "../Breadcrumb";
 
 const navigation = [
   {
@@ -113,10 +112,9 @@ export default function AppLayout(props) {
   const [user, setUser] = useState({});
   useEffect(() => {
     setUser(UserProfile);
-  }, [UserProfile]);
+  }, []);
   console.log(UserProfile);
   console.log(user);
-
   const onLogout = () => {
     dispatch(doPushSignoutRequest());
     router.push("/");
@@ -184,7 +182,7 @@ export default function AppLayout(props) {
                   <div className="space-y-1">
                     {navigation
                       .filter((item) =>
-                        item.roles.includes(user?.roles || UserProfile?.roles)
+                        item.roles.includes(user.roles || UserProfile.roles)
                       )
                       .map((item) => (
                         <Link
@@ -253,7 +251,7 @@ export default function AppLayout(props) {
                           />
                           <span className="flex-1 flex flex-col min-w-0">
                             <span className="text-gray-900 text-sm font-medium truncate">
-                              {user?.username || UserProfile?.username}
+                              {user.username || UserProfile.username}
                             </span>
                             <span className="text-gray-500 text-sm truncate">
                               {user.email || UserProfile.email}
@@ -389,7 +387,7 @@ export default function AppLayout(props) {
               <div className="space-y-1">
                 {navigation
                   .filter((item) =>
-                    item.roles.includes(user?.roles || UserProfile?.roles)
+                    item.roles.includes(user.roles || UserProfile.roles)
                   )
                   .map((item) => (
                     <Link
@@ -587,9 +585,6 @@ export default function AppLayout(props) {
         </div>
         <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none">
           {/* Page title & actions */}
-          <div className="py-3 px-5">
-            <Breadcrumb />
-          </div>
           {children}
         </main>
       </div>
