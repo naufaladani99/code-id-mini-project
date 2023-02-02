@@ -67,7 +67,7 @@ export default function LandingPage(props) {
     }
     useEffect(() => {
         setUser(UserProfile)
-    },[UserProfile])
+    },[])
     console.log(user);
     return (
         <div className='bg-white'>
