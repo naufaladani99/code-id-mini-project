@@ -1,12 +1,16 @@
 import { combineReducers } from "redux";
-import BatchReducer from "./BatchReducer";
-import CandReducer from "./CandReducer";
+import ClientReducer from "./ClientReducer";
+import JobCategoryReducer from "./JobCategoryReducer";
+import JobPostReducer from "./JobPostReducer";
+import JobTypeReducer from "./JobTypeReducer";
 import UsrReducer from "./UsrReducer";
 
 const rootReducer = combineReducers({
-    usrStated: UsrReducer,
-    batchStated: BatchReducer,
-    candidateStated: CandReducer,
-})
+  usrStated: UsrReducer,
+  jotyStated: JobTypeReducer,
+  jocaStated: JobCategoryReducer,
+  jopoStated: JobPostReducer,
+  clitStated: ClientReducer
+});
 
-export default rootReducer
+export default rootReducer;

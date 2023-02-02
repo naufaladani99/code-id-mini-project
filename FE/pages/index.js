@@ -6,7 +6,6 @@ export default function Home() {
       <LandingPage>
       <>Home</>
       </LandingPage>
-     
     </div>
   )
 }

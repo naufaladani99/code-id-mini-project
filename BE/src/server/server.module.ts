@@ -14,36 +14,36 @@ import { UsersPhones } from '../entities/UsersPhones';
 import { UsersRoles } from '../entities/UsersRoles';
 import { Entities } from '../entities/Entities';
 import { Roles } from '../entities/Roles';
-import { CandController } from './Controller/cand.con';
-import { BatchController } from './Controller/batch.con';
-import { CandService } from './Services/cand.srv';
-import { BatchService } from './Services/batch.srv';
-import { Batch } from 'src/entities/Batch';
-import { BatchStudent } from 'src/entities/BatchStudent';
-import { UsersEducation } from 'src/entities/UsersEducation';
-import { UsersSkill } from 'src/entities/UsersSkill';
-import { BatchStudentEvaluation } from 'src/entities/BatchStudentEvaluation';
-import { Employee } from 'src/entities/Employee';
-import { BootcampApply } from 'src/entities/BootcampApply';
-import { ProgramEntity } from 'src/entities/ProgramEntity';
+import { JobType } from '../entities/JobType';
+import { JobTypeService } from './Services/jobtype.srv';
+import { JobTypeController } from './Controller/jobtype.con';
+import { JobCategory } from '../entities/JobCategory';
+import { JobCategoryService } from './Services/jobcategory.srv';
+import { JobCategoryController } from './Controller/jobcategory.con';
+import { JobRoleService } from './Services/jobrole.srv';
+import { JobRoleController } from './Controller/jobrole.con';
+import { JobRole } from '../entities/JobRole';
+import { JobPostService } from './Services/jobpost.srv';
+import { JobPostController } from './Controller/jobpost.con';
+import { JobPost } from '../entities/JobPost';
+import { Client } from '../entities/Client';
+import { ClientService } from './Services/client.srv';
+import { ClientController } from './Controller/client.con';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      Batch,
-      BatchStudent,
       Users,
-      UsersEducation,
       UsersEmail,
       UsersPhones,
       UsersRoles,
       Entities,
       Roles,
-      UsersSkill,
-      BatchStudentEvaluation,
-      Employee,
-      BootcampApply,
-      ProgramEntity,
+      JobType,
+      JobCategory,
+      JobRole,
+      JobPost,
+      Client,
     ]),
     MulterModule.register(ConfigMulter.UploadFiles()),
     PassportModule,
@@ -54,12 +54,22 @@ import { ProgramEntity } from 'src/entities/ProgramEntity';
   ],
   providers: [
     UsersService,
-    CandService,
-    BatchService,
     LocalStrategy,
     JwtStrategy,
+    JobTypeService,
+    JobCategoryService,
+    JobRoleService,
+    JobPostService,
+    ClientService,
   ],
-  controllers: [UserController, CandController, BatchController],
+  controllers: [
+    UserController,
+    JobTypeController,
+    JobCategoryController,
+    JobRoleController,
+    JobPostController,
+    ClientController,
+  ],
   exports: [UsersService],
 })
 export class ServerModule {}

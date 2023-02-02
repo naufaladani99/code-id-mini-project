@@ -25,7 +25,7 @@ export default function signin() {
     if (UserProfile) {
       router.push('/')
     }
-  }, [UserProfile, router])
+  }, [UserProfile])
 
   const formik = useFormik({
     initialValues: {
@@ -44,28 +44,28 @@ export default function signin() {
   });
   return (
     <div>
-      <div className="text-center mt-24">
-        <div className="flex items-center justify-center">
+      <div class="text-center mt-24">
+        <div class="flex items-center justify-center">
           <img
             className="h-10 w-auto"
             src="../assets/images/codeid.png"
             alt="codeid"
           />
         </div>
-        <h2 className="text-4xl tracking-tight">
+        <h2 class="text-4xl tracking-tight">
           Sign in into your account
         </h2>
-        <span className="text-sm">or{' '}
+        <span class="text-sm">or{' '}
           <Link href="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">
             sign up your account
           </Link>
         </span>
       </div>
-      <div className="flex justify-center my-2 mx-4 md:mx-0">
-        <form className="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full md:w-full px-3 mb-6">
-              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Username</label>
+      <div class="flex justify-center my-2 mx-4 md:mx-0">
+        <form class="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full md:w-full px-3 mb-6">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Username</label>
               <input
                 id="username"
                 name="username"
@@ -74,15 +74,15 @@ export default function signin() {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 autoComplete="username"
-                className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
+                class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
                 placeholder="Username"
                 required />
               {formik.touched.username && formik.errors.username ?
                 <span className="mt-2 text-sm text-red-600">{formik.errors.username}</span> : null}
 
             </div>
-            <div className="w-full md:w-full px-3 mb-6">
-              <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor='Password'>Password</label>
+            <div class="w-full md:w-full px-3 mb-6">
+              <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for='Password'>Password</label>
               <input
                 id="password"
                 name="password"
@@ -91,15 +91,15 @@ export default function signin() {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 autoComplete="current-password"
-                className="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
+                class="appearance-none block w-full bg-white text-gray-900 font-medium border border-gray-400 rounded-lg py-3 px-3 leading-tight focus:outline-none"
                 placeholder="Password"
                 required />
               {formik.touched.password && formik.errors.password ?
                 <span className="mt-2 text-sm text-red-600">{formik.errors.password}</span>
                 : null}
             </div>
-            <div className="w-full md:w-full px-3 mb-6">
-              <button onClick={formik.handleSubmit} className="appearance-none block w-full bg-blue-600 text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">Sign In</button>
+            <div class="w-full md:w-full px-3 mb-6">
+              <button onClick={formik.handleSubmit} class="appearance-none block w-full bg-blue-600 text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">Sign In</button>
             </div>
           </div>
         </form>
